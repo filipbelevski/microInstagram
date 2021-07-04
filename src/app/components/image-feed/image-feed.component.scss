@@ -1,0 +1,17 @@
+
+mat-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+mat-card > img {
+  width: 80%;
+  cursor: pointer;
+  padding-top: 2em;
+}
+.mat-card>:first-child, .mat-card-content>:first-child {
+  position: absolute;
+  top: 0%;
+  padding: 5px;
+}

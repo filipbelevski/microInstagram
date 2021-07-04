@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto;
+}
+.spacer-sm {
+  width: 0.2rem;
+}
+mat-toolbar {
+  margin-bottom: 1rem;
+}
+
+.mat-toolbar.mat-basic{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+}

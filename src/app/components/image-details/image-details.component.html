@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly" class="fx-container">
+    <div fxFlexFill fxFlexAlign="center center">
+      <mat-card class="card" class="mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-subtitle>ID: {{image.id}}</mat-card-subtitle>
+          <mat-card-subtitle>{{image.title}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="image.url" width="600px" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            Thumbnail URL: {{image.thumbnailUrl}}</p>
+          <p>
+            URL: {{image.url}}</p>
+          <p>
+            Album ID: {{image.albumId}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" aria-label="edit" (click)="openEditImageDialog()">
+            <mat-icon>edit</mat-icon><span>Edit</span>
+          </button>
+          <button mat-button color="warn" aria-label="delete" (click)="openDeleteImageDialog()">
+            <mat-icon>delete</mat-icon>Delete
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+  </div>
+  <div>

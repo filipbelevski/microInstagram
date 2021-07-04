@@ -1,0 +1,38 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<h4 mat-dialog-title>Edit image</h4>
+<form [formGroup]="editImageForm" (ngSubmit)="editImage(editImageForm.value)">
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Album ID:</mat-label>
+    <input matInput type="number" [formControl]="albumId" required>
+    <mat-error *ngIf="albumId.invalid">Invalid album id</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Image Title:</mat-label>
+    <input matInput type="text"  [formControl]="title" required [value]="image.title">
+    <mat-error *ngIf="albumId.invalid">Enter a title</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Image url:</mat-label>
+    <input matInput type="text" [formControl]="url" required>
+    <mat-error *ngIf="url.invalid">Enter an image url</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Thumbnail url:</mat-label>
+    <input matInput type="text" [formControl]="thumbnailUrl" required>
+    <mat-error *ngIf="thumbnailUrl.invalid">Invalid url should end in(png, jpg, jpeg)</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<button mat-button color="accent" [disabled]="editImageForm.invalid" type="submit">
+  <mat-icon>save</mat-icon> Save
+</button>
+</form>
+<!-- moving this btn into the form sends a request on dismiss go figure -->
+<button mat-button color="primary" (click)="dismiss()">
+  <mat-icon>cancel</mat-icon>
+  Cancel
+</button>
+

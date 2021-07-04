@@ -1,0 +1,14 @@
+<mat-toolbar color="basic" style="position: fixed;">
+  <span *ngIf="!mobile">Micro Instagram</span>
+  <span class="spacer-sm"></span>
+  <img src="../../../assets/instagram-logo-png-2426.png" height="30" alt="" loading="lazy" />
+  <span class="spacer"></span>
+  <button mat-icon-button color="primary" aria-label="icon button home" [routerLink]="['/home']"
+    routerLinkActive="router-link-active">
+    <mat-icon>home</mat-icon>
+  </button>
+  <div class="spacer-sm"></div>
+  <button mat-icon-button color="primary" class="nav-icon" aria-label="upload photo" (click)="openUploadImageDialog()">
+    <mat-icon>add_a_photo</mat-icon>
+  </button>
+</mat-toolbar>

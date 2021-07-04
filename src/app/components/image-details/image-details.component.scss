@@ -1,0 +1,21 @@
+img {
+  max-width: 600px;
+}
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  margin: 0;
+}
+mat-card > img {
+  width: 80%;
+}
+.fx-container{
+  justify-self: center;
+  width: 80%;
+  margin-top: 7em;
+  width: 100%;
+}
+
