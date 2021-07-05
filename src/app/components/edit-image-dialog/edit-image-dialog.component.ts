@@ -42,6 +42,8 @@ export class EditImageDialogComponent implements OnInit {
     formValues.id = this.image.id;
     this.apiService.updateImage(formValues).subscribe(
       ()=> {
+        // since api will return just an id on post method response, we can't handle parent data here and change it accordingly to the response,
+        // instead we just pass the form values below in dialogRef and update the component
         this.isLoading = true;
         this.snackbarSuccess.openSnackBar('Sucessfuly edited image')
       },

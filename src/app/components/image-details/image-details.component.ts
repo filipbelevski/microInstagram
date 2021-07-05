@@ -22,13 +22,13 @@ export class ImageDetailsComponent implements OnInit {
   }
 
   openDeleteImageDialog(): void {
-      this.dialog.open(DeleteImageDialogComponent, {
+      this.dialog.open( DeleteImageDialogComponent, {
       width: '250px',
       data: {id: this.image.id}
     });
   }
   openEditImageDialog(): void {
-      const dialogRef = this.dialog.open(EditImageDialogComponent,{
+      const dialogRef = this.dialog.open(EditImageDialogComponent, {
       data: {image: this.image},
       disableClose: true,
     })
