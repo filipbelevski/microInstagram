@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IImage } from 'src/app/models/IImage';
@@ -28,11 +28,10 @@ export class ImageDetailsComponent implements OnInit {
     });
   }
   openEditImageDialog(): void {
-      const dialogRef = this.dialog.open(EditImageDialogComponent, {
+    const dialogRef = this.dialog.open(EditImageDialogComponent, {
       data: {image: this.image},
       disableClose: true,
     })
-    dialogRef.afterClosed().subscribe( res => this.image = res.data)
-
+    dialogRef.componentInstance.onEdit.subscribe(data => this.image = data)
   }
 }

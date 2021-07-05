@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { IImage } from 'src/app/models/IImage';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackbarErrorService } from 'src/app/services/snackbar-error.service';
@@ -17,7 +18,8 @@ export class UploadImageDialogComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<UploadImageDialogComponent>,
     private apiService: ApiService,
     private snackbarSuccess: SnackbarSuccessService,
-    private snackbarError: SnackbarErrorService
+    private snackbarError: SnackbarErrorService,
+    private router: Router
     ) { }
 
   image!: IImage
@@ -26,7 +28,6 @@ export class UploadImageDialogComponent implements OnInit {
   title!: FormControl;
   url!: FormControl;
   thumbnailUrl!: FormControl;
-
   ngOnInit(): void {
     this.createControls();
     this.uploadNewImage =  new FormGroup({
@@ -48,8 +49,8 @@ export class UploadImageDialogComponent implements OnInit {
       ()=> this.snackbarSuccess.openSnackBar('Sucessfuly uploaded image'),
       () => this.snackbarError.openSnackBar("Failed to upload image")
     );
-    console.log('uploading img')
     this.dialogRef.close();
+    this.router.navigate(['home'])
   }
   dismiss() {
     this.dialogRef.close();
