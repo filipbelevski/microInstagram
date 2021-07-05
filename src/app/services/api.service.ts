@@ -16,7 +16,6 @@ export class ApiService {
   getImages(): Observable<IImage[]> {
     return this.http.get<IImage[]>(this.baseUrl)
   }
-
   getImage(id: number): Observable<IImage> {
     return this.http.get<IImage>(`${this.baseUrl}/${id}`)
   }
@@ -33,6 +32,4 @@ export class ApiService {
     let options = { headers: new HttpHeaders({ 'Content-type': 'application/json; charset-"UTF-8"' }) }
     return this.http.post<IImage>(this.baseUrl, image, options)
   }
-
-
 }

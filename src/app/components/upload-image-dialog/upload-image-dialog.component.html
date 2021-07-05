@@ -15,7 +15,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Image url:</mat-label>
     <input matInput type="text" [formControl]="url" required>
-    <mat-error *ngIf="url.invalid">Enter an image url</mat-error>
+    <mat-error *ngIf="url.invalid">Invalid url should end in(png, jpg, jpeg)</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
