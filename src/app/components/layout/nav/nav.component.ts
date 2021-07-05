@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadImageDialogComponent } from '../../upload-image-dialog/upload-image-dialog.component';
-
-
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',

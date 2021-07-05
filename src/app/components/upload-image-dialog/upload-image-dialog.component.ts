@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { IImage } from 'src/app/models/IImage';
-import { Image } from 'src/app/models/Image';
 import { ApiService } from 'src/app/services/api.service';
 import { SnackbarErrorService } from 'src/app/services/snackbar-error.service';
 import { SnackbarSuccessService } from 'src/app/services/snackbar-success.service';
@@ -29,7 +28,6 @@ export class UploadImageDialogComponent implements OnInit {
   thumbnailUrl!: FormControl;
 
   ngOnInit(): void {
-    this.image = new Image();
     this.createControls();
     this.uploadNewImage =  new FormGroup({
       albumId: this.albumId,
@@ -42,8 +40,8 @@ export class UploadImageDialogComponent implements OnInit {
   createControls() {
     this.albumId = new FormControl('', [Validators.required, Validators.min(1)]),
     this.title = new FormControl('', [Validators.required]),
-    this.url = new FormControl('', [Validators.required]),
-    this.thumbnailUrl = new FormControl('', [Validators.required])
+    this.url = new FormControl('', [Validators.required, Validators.pattern("(.*?)\.(gif|jpe?g|tiff?|png|img|webp|bmp)$")]),
+    this.thumbnailUrl = new FormControl('', [Validators.required, Validators.pattern("(.*?)\.(gif|jpe?g|tiff?|png|img|webp|bmp)$")])
   }
   uploadImage(imageFormValues: IImage) {
     this.apiService.uploadImage(imageFormValues).subscribe(

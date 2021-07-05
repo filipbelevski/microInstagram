@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 import { ApiService } from 'src/app/services/api.service';
 import { SnackbarErrorService } from 'src/app/services/snackbar-error.service';
@@ -16,7 +17,8 @@ export class DeleteImageDialogComponent implements OnInit {
      private apiService: ApiService,
      @Inject(MAT_DIALOG_DATA) public data: any,
      private snackbarSuccess: SnackbarSuccessService,
-     private snackbarError: SnackbarErrorService
+     private snackbarError: SnackbarErrorService,
+     private router: Router
      ) { }
 
   isLoading: boolean = false;
@@ -34,6 +36,7 @@ export class DeleteImageDialogComponent implements OnInit {
       )
     this.isLoading = !this.isLoading
     this.dialogRef.close();
+    this.router.navigate(['home']);
   }
   dismiss(): void {
     this.dialogRef.close(null);

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators'
+import { Observable } from 'rxjs';
+
 import { IImage } from '../models/IImage';
 
 @Injectable({
@@ -30,15 +30,9 @@ export class ApiService {
     return this.http.put<IImage>(`${this.baseUrl}/${image.id}`, image, options)
   }
   uploadImage(image: IImage): Observable<IImage> {
-    let options = { headers: new HttpHeaders({'Content-type': 'application/json; charset-"UTF-8"'})}
+    let options = { headers: new HttpHeaders({ 'Content-type': 'application/json; charset-"UTF-8"' }) }
     return this.http.post<IImage>(this.baseUrl, image, options)
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result as T);
-    }
-  }
 
 }

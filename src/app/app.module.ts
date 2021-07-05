@@ -32,6 +32,7 @@ import { DeleteImageDialogComponent } from './components/delete-image-dialog/del
 import { EditImageDialogComponent } from './components/edit-image-dialog/edit-image-dialog.component';
 import { UploadImageDialogComponent } from './components/upload-image-dialog/upload-image-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PathNotFoundComponent } from './components/path-not-found/path-not-found.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DeleteImageDialogComponent,
     EditImageDialogComponent,
     UploadImageDialogComponent,
+    PathNotFoundComponent,
   ],
   imports: [
     BrowserModule,
